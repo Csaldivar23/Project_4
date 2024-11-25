@@ -63,7 +63,8 @@ These indices establish relationships with their respective tables (type_df, reg
 
 
 ## Links
-Data Sources:
+
+**Data Sources:**
 
 * Kaggle Dataset:
 
@@ -73,7 +74,7 @@ Data Sources:
 
       https://hassavocadoboard.com/
 
-Cleaning Notebook:
+**Cleaning Notebook:**
 
 * Drop Values Reference:
 
@@ -86,3 +87,9 @@ Cleaning Notebook:
 * Binning String Values:
 
       https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
+
+**Preprocessing:**
+
+* Connecting PostgreSQL with SQLAlchemy:
+
+      https://www.geeksforgeeks.org/connecting-postgresql-with-sqlalchemy-in-python/
