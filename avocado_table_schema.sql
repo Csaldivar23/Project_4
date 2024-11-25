@@ -33,9 +33,9 @@ CREATE TABLE avocados(
 	SmallBags DOUBLE PRECISION,
 	LargeBags DOUBLE PRECISION,
 	XLargeBags DOUBLE PRECISION,
-	type INT,
-	region INT,
-	market INT,
+	type_ INT,
+	region_ INT,
+	market_ INT,
 	FOREIGN KEY (type) REFERENCES type(Index),
 	FOREIGN KEY (region) REFERENCES region(Index),
 	FOREIGN KEY (market) REFERENCES market(Index)
