@@ -97,7 +97,8 @@ Moving forward, some considerations for improving prediction accuracy could be:
 
 
 ## Links
-Data Sources:
+
+**Data Sources:**
 
 * Kaggle Dataset:
 
@@ -107,7 +108,7 @@ Data Sources:
 
       https://hassavocadoboard.com/
 
-Cleaning Notebook:
+**Cleaning Notebook:**
 
 * Drop Values Reference:
 
@@ -120,3 +121,4 @@ Cleaning Notebook:
 * Binning String Values:
 
       https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
+
