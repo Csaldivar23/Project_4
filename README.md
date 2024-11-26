@@ -42,24 +42,58 @@ These indices establish relationships with their respective tables (type_df, reg
 
 ### Entity-Relationship Diagram (ERD)
 
+![avocado_ERD](https://github.com/user-attachments/assets/fc26dfd6-56ee-4327-b0bb-202a15325598)
 
 ### PostgreSQL Database Setup
 
+The schema consists of four tables: type, region, market, and avocados.
+Type, region, and market are lookup tables containing descriptive data (e.g., avocado types, regions, and markets).
+Avocados contains sales data, including price, volume, and bag types, and links to the other tables through foreign keys.
+The avocados table has foreign keys that link to type, region, and market by their respective Index values, establishing relationships between the data.
 
 ## Preprocessing
-
-
+Using SQLalchemy we created an engine and reflected our database into all of our classes. We ended up with four classes representing each table from our Avacado Database.
+We used read_sql and created a series of joins for all ofo ur classes to create the avocado_df. We dropped the unneccesry columns from the joins we excecuted. 'type_', 'region_', 
+'market_', 'index_1', 'index_2', 'index_3' We then coverted the date column to datetime so that we could extract the month. The new month column was binned to Quarter 1, 2, 3, and 4.
+It was then cast as a string in order for our model to read it. We then dropped the index because it contains unique information which would interfere with the models accuracy.
 
 ## Training
+We created a scaler from StandardScaler using scikit-learn. Using the scaler we scaled 'plu4046', 'plu4225', 'plu4770', 'totalbags'. We then transformed the scaled data and labeled it scaled data.
+We defined our 'y' (terget variable) as 'averageprice'. Our 'X' (features) consisted of 'plu4046', 'plu4225', 'plu4770', 'totalbags', 'region', 'market', 'type', 'quarter'.
 
+`Every region is within a market and every market cotains the regions. So one of these features must always be dropped when defining X to avoid duplicate data.`
 
+We then casted all of our object types using get_dummies. It is important to note that the data must be scaled prior to using get_dummies to avoid scaling the dummies.
+We then split the dataset using scikit-learn's train_test_split.
+
+After training the data was fit to the model and predictions were made. 
 
 ## Results
 
+* Random Forest Regressor
+
+        The mean absolute value is: 0.1158009761226277
+        The mean square error is: 0.026179730858605355
+        The root mean square error is: 0.16180151686126232
+        The R squared is: 0.836470979103074
+  
+* Decision Tree Regression
+
+* Linear Regression
+
+* Nueral Network
 
 
 ## Summary
+Over the course of this project we've concluded that the Random Forest Regression Model yielded our highet r2 score at '0.84'.
 
+This model can used to price the avocado markets.
+
+Moving forward, some considerations for improving prediction accuracy could be:
+
+* hyperparameter tuning
+* obtaining more data and features
+* using a time analysis model
 
 
 ## Links
