@@ -145,9 +145,4 @@ Moving forward, some considerations for improving prediction accuracy could be:
 * Binning String Values:
 
       https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
-
-**Preprocessing:**
-
-* Connecting PostgreSQL with SQLAlchemy:
-
-      https://www.geeksforgeeks.org/connecting-postgresql-with-sqlalchemy-in-python/
+      
