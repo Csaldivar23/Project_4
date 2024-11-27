@@ -1,13 +1,26 @@
 # Predicting Avocado Prices with Machine Learning
 
+## Contents of Repository
+
+
 ## Overview
-The purpose of this project is to build a Machine Learning model that can predict the future average price of avocados.
+The purpose of this project is to build a Machine Learning model that can predict the average price of avocados.
+
 Our goal is to build a model with a high predictive accuracy, aiming for an R² value of at least 0.80.
 
 ## Data Source
-The dataset used in this project originates from the Hass Avocado Board (HAB). However, we sourced our data from Kaggle, 
-where it was uploaded by user 'VakhariaPujan'. This dataset is an updated version of two earlier datasets from users 
-'Justin Kiggins' and 'Valentin Joseph', all of which are based on the original data from the HAB.
+The dataset used in this project originates from the Hass Avocado Board (HAB).
+
+The Hass Avocado Board is a non-profit organization that supports the U.S. avocado industry 
+by providing data on avocado prices, supply, demand, and market trends to help promote growth and consumption of Hass avocados.
+
+The Hass Avocado Board collects data on avocado prices, supply and demand, consumer behavior, seasonal trends, 
+and market dynamics to support the avocado industry and inform decision-making.
+
+This made it a natural choice for our project.
+
+However, we sourced our data from Kaggle, where it was uploaded by user 'VakhariaPujan'. This dataset is an updated version 
+of two earlier datasets from users 'Justin Kiggins' and 'Valentin Joseph', all of which are based on the original data from the HAB.
 
 ## Cleaning
 The first step was to normalize the data into its 3rd normal form. Here's the process we followed:
@@ -79,10 +92,21 @@ After training the data was fit to the model and predictions were made.
   
 * Decision Tree Regression
 
+        The mean absolute value is: 0.15221504740241626
+        The mean square error is: 0.05284956701195434
+        The root mean square error is: 0.22989033692600988
+        The R squared is: 0.6698805654279453
+
 * Linear Regression
+
+        The mean absolute value is: 0.19533338519756038
+        The mean square error is: 0.06597543561334976
+        The root mean square error is: 0.2568568387513748
+        The R squared is: 0.5878911648339988
 
 * Nueral Network
 
+        Loss: 0.3475993573665619, R2 Score: -1.1712255477905273
 
 ## Summary
 Over the course of this project we've concluded that the Random Forest Regression Model yielded our highet r2 score at '0.84'.
@@ -121,4 +145,4 @@ Moving forward, some considerations for improving prediction accuracy could be:
 * Binning String Values:
 
       https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
-
+      
