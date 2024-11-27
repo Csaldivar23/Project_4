@@ -5,6 +5,7 @@
 
 ## Overview
 The purpose of this project is to build a Machine Learning model that can predict the average price of avocados.
+
 Our goal is to build a model with a high predictive accuracy, aiming for an R² value of at least 0.80.
 
 ## Data Source
