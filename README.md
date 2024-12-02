@@ -1,12 +1,9 @@
 # Predicting Avocado Prices with Machine Learning
 
-## Contents of Repository
-
-
 ## Overview
 The purpose of this project is to build a Machine Learning model that can predict the average price of avocados.
 
-Our goal is to build a model with a high predictive accuracy, aiming for an R² value of at least 0.80.
+*`Our goal is to build a model with a high predictive accuracy, aiming for an R² value of at least 0.80.`*
 
 ## Data Source
 The dataset used in this project originates from the Hass Avocado Board (HAB).
@@ -52,6 +49,8 @@ Saved the updated avocado_df, with type, region, and market columns converted to
 These indices establish relationships with their respective tables (type_df, region_df, market_df) for integration into a PostgreSQL database.
 
 ## Database Design and Implementation
+After normalizing and cleaning the data, the next step was to structure it into a relational database using PostgreSQL, as illustrated 
+in the Entity Relationship Diagram (ERD) below.
 
 ### Entity-Relationship Diagram (ERD)
 
@@ -60,15 +59,22 @@ These indices establish relationships with their respective tables (type_df, reg
 ### PostgreSQL Database Setup
 
 The schema consists of four tables: type, region, market, and avocados.
+
 Type, region, and market are lookup tables containing descriptive data (e.g., avocado types, regions, and markets).
-Avocados contains sales data, including price, volume, and bag types, and links to the other tables through foreign keys.
-The avocados table has foreign keys that link to type, region, and market by their respective Index values, establishing relationships between the data.
+The avocados table holds sales data, including price, volume, and bag types, linking to the other tables through foreign keys.
+Foreign keys in the avocados table connect to the type, region, and market tables by their respective index values, establishing clear 
+relationships between the data.
 
 ## Preprocessing
-Using SQLalchemy we created an engine and reflected our database into all of our classes. We ended up with four classes representing each table from our Avacado Database.
-We used read_sql and created a series of joins for all ofo ur classes to create the avocado_df. We dropped the unneccesry columns from the joins we excecuted. 'type_', 'region_', 
-'market_', 'index_1', 'index_2', 'index_3' We then coverted the date column to datetime so that we could extract the month. The new month column was binned to Quarter 1, 2, 3, and 4.
-It was then cast as a string in order for our model to read it. We then dropped the index because it contains unique information which would interfere with the models accuracy.
+Using SQLAlchemy, we created an engine and reflected our Avocado database into classes, resulting in four classes representing each table.
+
+We then used read_sql to perform a series of joins on these classes, creating the avocado_df dataframe.
+During this process, we removed unnecessary columns from the joins: 'type_', 'region_', 'market_', 'index_1', 'index_2', and 'index_3'.
+
+Next, we converted the date column to a datetime format to extract the month.
+The extracted month was binned into quarters (Q1, Q2, Q3, and Q4) and cast as a string to ensure compatibility with our model.
+
+Finally, we dropped the index column as it contained unique information that could interfere with the model's accuracy.
 
 ## Training
 We created a scaler from StandardScaler using scikit-learn. Using the scaler we scaled 'plu4046', 'plu4225', 'plu4770', 'totalbags'. We then transformed the scaled data and labeled it scaled data.
@@ -82,29 +88,28 @@ We then split the dataset using scikit-learn's train_test_split.
 After training the data was fit to the model and predictions were made. 
 
 ## Results
-
-* Random Forest Regressor
+Random Forest Regressor
 
         The mean absolute value is: 0.1158009761226277
         The mean square error is: 0.026179730858605355
         The root mean square error is: 0.16180151686126232
         The R squared is: 0.836470979103074
   
-* Decision Tree Regression
+Decision Tree Regression
 
         The mean absolute value is: 0.15221504740241626
         The mean square error is: 0.05284956701195434
         The root mean square error is: 0.22989033692600988
         The R squared is: 0.6698805654279453
 
-* Linear Regression
+Linear Regression
 
         The mean absolute value is: 0.19533338519756038
         The mean square error is: 0.06597543561334976
         The root mean square error is: 0.2568568387513748
         The R squared is: 0.5878911648339988
 
-* Nueral Network
+Nueral Network
 
         Loss: 0.3475993573665619, R2 Score: -1.1712255477905273
 
@@ -122,27 +127,32 @@ Moving forward, some considerations for improving prediction accuracy could be:
 
 ## Links
 
-**Data Sources:**
+**Data Source:**
 
 * Kaggle Dataset:
 
-      https://www.kaggle.com/datasets/vakhariapujan/avocado-prices-and-sales-volume-2015-2023
+    https://www.kaggle.com/datasets/vakhariapujan/avocado-prices-and-sales-volume-2015-2023
 
 * Hass Avocado Board:
 
-      https://hassavocadoboard.com/
+    https://hassavocadoboard.com/
 
 **Cleaning Notebook:**
 
 * Drop Values Reference:
 
-      https://www.youtube.com/watch?v=xCax4DLOKPA
+    https://www.youtube.com/watch?v=xCax4DLOKPA
  
 * HAB Market Mapping:
 
-      https://hassavocadoboard.com/category-data/
+    https://hassavocadoboard.com/category-data/
 
 * Binning String Values:
 
-      https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
-      
+    https://stackoverflow.com/questions/59757095/how-to-bin-string-values-according-to-list-of-strings
+
+**Preprocessing:**
+
+* Connecting PostgreSQL with SQLAlchemy:
+
+    https://www.geeksforgeeks.org/connecting-postgresql-with-sqlalchemy-in-python/
