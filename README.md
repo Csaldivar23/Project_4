@@ -81,8 +81,8 @@ We used scikit-learn's StandardScaler to scale the features 'plu4046', 'plu4225'
 The scaled data was then transformed and labeled as scaled_data. The target variable (y) was defined as 'averageprice', 
 while the feature set (X) included 'plu4046', 'plu4225', 'plu4770', 'totalbags', 'region', 'market', 'type', and 'quarter'.
 
-*`Since every region belongs to a market, and every market contains regions, one of these features must be excluded 
-from X to prevent duplicate or redundant data.`*
+*`Since every region belongs to a market, and every market contains regions,
+one of these features must be excluded from X to prevent duplicate or redundant data.`*
 
 Next, we converted all object-type columns into dummy variables using get_dummies.
 It's important to scale the numerical data before applying get_dummies to avoid scaling the generated dummy variables.
