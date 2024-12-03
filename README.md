@@ -77,15 +77,19 @@ The extracted month was binned into quarters (Q1, Q2, Q3, and Q4) and cast as a 
 Finally, we dropped the index column as it contained unique information that could interfere with the model's accuracy.
 
 ## Training
-We created a scaler from StandardScaler using scikit-learn. Using the scaler we scaled 'plu4046', 'plu4225', 'plu4770', 'totalbags'. We then transformed the scaled data and labeled it scaled data.
-We defined our 'y' (terget variable) as 'averageprice'. Our 'X' (features) consisted of 'plu4046', 'plu4225', 'plu4770', 'totalbags', 'region', 'market', 'type', 'quarter'.
+We used scikit-learn's StandardScaler to scale the features 'plu4046', 'plu4225', 'plu4770', and 'totalbags'.
+The scaled data was then transformed and labeled as scaled_data. The target variable (y) was defined as 'averageprice', 
+while the feature set (X) included 'plu4046', 'plu4225', 'plu4770', 'totalbags', 'region', 'market', 'type', and 'quarter'.
 
-`Every region is within a market and every market cotains the regions. So one of these features must always be dropped when defining X to avoid duplicate data.`
+*`Since every region belongs to a market, and every market contains regions, one of these features must be excluded 
+from X to prevent duplicate or redundant data.`*
 
-We then casted all of our object types using get_dummies. It is important to note that the data must be scaled prior to using get_dummies to avoid scaling the dummies.
-We then split the dataset using scikit-learn's train_test_split.
+Next, we converted all object-type columns into dummy variables using get_dummies.
+It's important to scale the numerical data before applying get_dummies to avoid scaling the generated dummy variables.
 
-After training the data was fit to the model and predictions were made. 
+We then split the dataset into training and testing sets using scikit-learn's train_test_split.
+
+Finally, the model was trained on the training set, and predictions were made using the test data.
 
 ## Results
 Random Forest Regressor
@@ -109,23 +113,23 @@ Linear Regression
         The root mean square error is: 0.2568568387513748
         The R squared is: 0.5878911648339988
 
-Nueral Network
+Neural Network
 
         Loss: 0.3475993573665619, R2 Score: -1.1712255477905273
 
 ## Summary
-Over the course of this project we've concluded that the Random Forest Regression Model yielded our highet r2 score at '0.84'.
+Over the course of this project, we found that the Random Forest Regressor produced the highest R² score of 0.84, 
+making it the most accurate model for predicting avocado prices.
 
-This model can used to price the avocado markets.
+This model can be effectively used to forecast avocado market prices, providing valuable insights for pricing strategies in the industry.
 
-Moving forward, some considerations for improving prediction accuracy could be:
+To enhance prediction accuracy in the future, we could consider the following approaches:
 
-* hyperparameter tuning
-* obtaining more data and features
-* using a time analysis model
+* Hyperparameter Tuning: Fine-tune the model’s parameters to improve accuracy and performance.
+* Adding More Data and Features: Include additional data, such as weather or market trends, to capture factors influencing prices.
+* Using Time-Series Models: Apply models designed for analyzing time-based data to better understand trends and seasonality.
 
-
-## Links
+## References
 
 **Data Source:**
 
